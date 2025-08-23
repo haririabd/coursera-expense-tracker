@@ -1,0 +1,36 @@
+{% load i18n %}
+{% load static tailwind_cli %}
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block head_title %}SaaS{% endblock head_title %}
+        </title>
+        {% block extra_head %}
+        {% endblock extra_head %}
+        {% include 'base/css.html' %}
+        {% tailwind_css %}
+    </head>
+    <body>
+        {% block body %}
+        {% if request.user.is_authenticated %}
+            {% include 'allauth/account-nav.html' %}
+        {% endif %}
+            {% if messages %}
+                <div>
+                    <strong>{% trans "Messages:" %}</strong>
+                    <ul>
+                        {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            {% block content %}
+            {% endblock content %}
+        {% endblock body %}
+        {% block extra_body %}
+        {% endblock extra_body %}
+        {% include 'base/bottom-js.html' %}
+    </body>
+</html>
