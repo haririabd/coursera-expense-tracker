@@ -1,6 +1,15 @@
 from django.shortcuts import render
 from . import forms
 
+def blank_view(request):
+    page_title = 'Blank Page'
+    html_template = 'dashboard/dashboard-blank.html'
+
+    context = {
+        "page_title": page_title,
+    }
+    return render(request, html_template, context)
+
 def index_view(request, *args, **kwargs):
     page_title = 'Homepage'
     html_template = 'index.html'

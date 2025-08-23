@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from . import views
+from products.views import view_categories, add_category
 
 ON_CODESPACE = settings.ON_CODESPACE
 
@@ -27,8 +28,11 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     # Application path
     path('', views.index_view, name='index'),
+    path('blank/', views.blank_view, name='blank'),
     path('about/', views.about_view, name='about'),
     path('contact/', views.contact_view, name='contact'),
+    path('add-category/', add_category, name='add_category'),
+    path('categories/', view_categories, name='product_categories'),
     # Forms only for swap
     path('contact-form-only/', views.contact_form_only, name='contact_form_only'),
 ]

@@ -1,0 +1,88 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="overflow-x-auto lg:w-8/10 mx-auto mt-[5em] text-center">
+    <div class="mx-auto max-w-(--breakpoint-2xl) p-4 md:p-6">
+        <!-- Breadcrumb Start -->
+        <div x-data="{ pageName: `Categories`}">
+            {% include 'dashboard/breadcrumb.html' %}
+        </div>
+        <!-- Breadcrumb End -->
+        <div class="space-y-5 sm:space-y-6">
+            <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+                <div class="px-5 py-4 sm:px-6 sm:py-5">
+                    <h3 class="text-base font-medium text-gray-800 dark:text-white/90">
+                        Showing All {{total}} Categories
+                    </h3>
+                </div>
+                <div class="p-5 border-t border-gray-100 dark:border-gray-800 sm:p-6">
+                    <div class="overflow-hidden rounded-xl bg-white dark:bg-white/[0.03]">
+                        <div class="max-w-full overflow-x-auto">
+                            <table class="min-w-full">
+                                <!-- table header start -->
+                                <thead>
+                                    <tr class="border-b border-gray-100 dark:border-gray-800">
+                                        <th class="px-5 py-3 sm:px-6">
+                                            <div class="flex items-center">
+                                                <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                                    No</p>
+                                            </div>
+                                        </th>
+                                        <th class="px-5 py-3 sm:px-6">
+                                            <div class="flex items-center">
+                                                <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                                    Category Name
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <th class="px-5 py-3 sm:px-6">
+                                            <div class="flex items-center">
+                                                <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                                    Action
+                                                </p>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <!-- table header end -->
+                                <!-- table body start -->
+                                <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                                    {% for i in cat %}
+                                    <tr>
+                                        <td class="px-5 py-4 sm:px-6">
+                                            <div class="flex items-center">
+                                                <div class="flex items-center gap-3">
+                                                    <div>
+                                                        <span
+                                                            class="block font-medium text-gray-800 text-theme-sm dark:text-white/90">
+                                                            {{ forloop.counter }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-5 py-4 sm:px-6">
+                                            <div class="flex items-center">
+                                                <p class="text-gray-500 text-theme-sm dark:text-gray-400">
+                                                    {{ i }}
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="px-5 py-4 sm:px-6">
+                                            <div class="flex items-center mr-3">
+                                                <button class="btn btn-sm btn-soft btn-info">Edit</button>
+                                                <button class="btn btn-sm btn-soft btn-error">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
