@@ -15,19 +15,11 @@
     </head>
     <body>
         {% block body %}
-        {% if request.user.is_authenticated %}
+        <div class="container mx-auto flex flex-col min-h-screen">
             {% include 'allauth/account-nav.html' %}
-        {% endif %}
-            {% if messages %}
-                <div>
-                    <strong>{% trans "Messages:" %}</strong>
-                    <ul>
-                        {% for message in messages %}<li>{{ message }}</li>{% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
             {% block content %}
             {% endblock content %}
+        </div>
         {% endblock body %}
         {% block extra_body %}
         {% endblock extra_body %}
