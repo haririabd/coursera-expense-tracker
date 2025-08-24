@@ -1,21 +1,6 @@
-# Django HTMX SaaS Template
+# Coursera Project: Expense Tracker
 
-A modern Django SaaS starter template featuring HTMX, Tailwind CSS (via DaisyUI), and best practices for rapid development and deployment.
-
-## Features
-
-### Current Features
-- Django project structure with reusable apps
-- HTMX for dynamic, modern frontend interactions
-- Tailwind CSS + DaisyUI for styling
-- Allauth for authentication (login, signup, social, passkey support)
-- Docker support for easy deployment
-- Railway deployment configuration
-- Custom management command for superuser creation
-- Example contact form and basic pages
-
-### Planned Features
-- Integrate forms with captcha validation
+A Django project created for Coursera Project
 
 ## Project Structure
 
@@ -102,10 +87,6 @@ A modern Django SaaS starter template featuring HTMX, Tailwind CSS (via DaisyUI)
 
 - Allauth is used for authentication.
 - Templates for login, signup, and logout are in [`src/templates/account/`](src/templates/account/).
-
-## Contact
-
-- Example contact form at `/contact` using Django forms and HTMX.
 
 ---
 
